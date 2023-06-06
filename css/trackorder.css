@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@520&display=swap');
+
+/* @font-face {
+    font-family: 'montserratregular';
+    src: url('montserrat-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    
+}
+
+body{
+    background-color: #f3f5f9;
+    font-family: 'montserratregular';
+    font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper{
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar{
+    width: 210px;
+    height: 100%;
+    background-color: #6da5fa;
+    padding: 20px 0px;
+    position: fixed;
+    transition: ease all .3s;
+}
+
+.wrapper .sidebar ul li{
+    padding: 14.5px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid #0000000d;
+    border-top: 1px solid #ffffff0d;
+}    
+
+.wrapper .sidebar ul li a{
+    color:#03113a;
+    font-size: 14px;
+    display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+    width: 25px;
+}
+
+.wrapper .sidebar ul li:hover a{
+    transition: ease all .3s;
+    color:#fff;
+}
+
+#active{
+    background: #fff;
+    color:#000000;
+    border-radius: 0px;
+    /* transform: scale(1.0); */
+}
+
+.wrapper .main_content{
+    width: 100%;
+    margin-left: 210px;
+}
+
+.wrapper .main_content .header{
+    width: 100%;
+    display:flex;
+    position: relative;
+    padding: 20px;
+    justify-content:space-between;
+    align-items:center;
+
+    background-color: #3c6eda ;
+    color: #fff;
+}
+
+.wrapper .main_content .header img{
+    width: 30px;
+    display: none;
+    overflow: hidden;
+}
+
+.wrapper .main_content .announcement{
+    width: 100%;
+    /* border:3px solid #2e2e2e; */
+    padding: 10px;
+}
+
+.announcement #title{
+    margin-top: 1px;
+    letter-spacing: -1px;
+    padding: 15px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #3c3c3e;
+}
+
+/* .announcement #sideicon {
+    position: absolute;
+    background-color: #ccc7c7;
+    padding: 20px;
+    top: 3.7rem;
+    left: 13.1rem;
+    
+} */
+
+hr {
+    width: 96%;
+    margin: auto;
+    border: none;
+    padding: 0.5px;
+    background-color: #bebec483;
+    margin-top: -.5em;
+    margin-bottom: 1em;
+}
+
+#firsthr {
+    width: 100%;
+    margin: auto;
+    border: none;
+    padding: 0.5px;
+    background-color: #ccc7c7;
+    margin-top: 2px;
+    margin-bottom: 1em;
+}
+
+#announce{
+    background-color: #e4e4e4;
+    color: #000000;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#announce i{
+    vertical-align: middle;
+    font-size: 25px;
+}
+
+.button{
+    font-size: 16px;
+    padding: 14px;
+    width: 55px;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #717070;
+    text-decoration: none;
+    color: #fffdfd;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+
+
+.button:hover {
+    background: #1b1b1b;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    height: 50vh auto;
+    width: 800px;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+
+.popup h2, .popupedit h2{
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.popup hr, .popupedit hr{
+    background-color: #000000;
+    padding: 0.7px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.popup .close, .popupedit .close{
+    position: absolute;
+    top: 10px;
+    right: 19px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .content {
+    width: 100%;
+    height: fit-content;
+    margin: 0 auto;
+    margin-bottom: 22px;
+}
+
+.content label{
+    font-size: 0.9em;
+    margin-bottom: 13px;
+    margin-left: 15px;
+    width: 31%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.content select{
+    outline: none;
+    padding: 7px;
+    width: 60%;
+    margin-left: 36px;
+}
+
+.content input{
+  outline: none;
+  padding: 7px;
+  width: 60%;
+  margin-left: 40px;
+}
+
+.submit-button, .received-button{
+    font-family: 'Montserrat';
+    background-color: #14277e;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    width: 30%;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.received-button{
+    width: 180px !important;
+}
+
+.submit-button:hover, .received-button:hover{
+    background-color: #263eaa;
+    
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+table{
+    border-collapse: collapse;
+    height: auto;
+    width: 100%;
+}
+th {
+    background-color: #C2DCFF;
+    color:#2e2d2d;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px;
+}
+th, td {
+            
+    text-align:center;
+    border:1px solid #dfdfdf;
+}
+
+td{
+    padding: 4px;
+    white-space: nowrap;
+}
+
+tr{
+    background-color: #fff;
+    font-size: 14px;
+}
+
+table tr:nth-child(odd) td{
+    background-color: #E1EDFD;
+}
+
+.fa-info-circle{
+    font-size: 19px;
+    width: -10px
+}
+
+.hover {
+    position: relative;
+    display: inline-block;
+}
+
+.hover .hoverdisplay {
+    visibility: hidden;
+    padding: 15px;
+    background-color: #06044C;
+    color: #fff;
+    text-align: justify;
+    line-height: 23px;
+    border-radius: 0.25em;
+    white-space: nowrap;
+    font-size: 15px;
+    width: 30vw;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 80%;
+    right: 50%;
+    transition-property: visibility;
+    transition-delay: 0s;
+}
+
+.hover:hover .hoverdisplay {
+    visibility: visible;
+    transition-delay: 0.3s;
+}
+
+.hoverdisplay label{
+    margin-right: 5px;
+}
+
+.insideannouncement{
+    width: 100%;
+    /* border:3px solid #2e2e2e; */
+    height: 74vh auto;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.hoverdisplay hr{
+    margin: 10px 0px 10px 0px;
+}
+
+#planid{
+    text-align: center;
+    background-color: #1b53a8;
+    padding: 15px;
+    width: 110%;
+    margin-top: -32px;
+    margin-left: -30px;
+}
+
+#planid i {
+    margin-right: 10px;
+}
+
+#paidstatus{
+    color: #fff;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 17px;
+    width: 100%;
+    text-align: center;
+}
+
+#perplan{
+    background-color: #3c6eda ;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 150px;
+    line-height: 18px;
+    overflow: hidden;
+    box-shadow: inset 0 0 10px #0d348a;
+
+    width: 49%;
+    height:450px;
+    padding: 2rem 1rem;
+    display: inline-block;
+    margin-right: 1%;
+
+
+    text-align: center;
+    align-items: center;
+    align-items: center;
+}
+
+#pergif{
+    text-align: center;
+    align-items: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#percontent{
+    text-align: justify;
+    margin: auto;
+    margin-top: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#planname {
+    font-size: 20px; 
+    
+    display: block;
+    letter-spacing: -1px;
+    /* display: block;
+    color: #fff; */
+}
+
+#plandesc{
+    /* margin-left: 95px;
+    margin-top: 12px;
+    font-size: 12px; */
+}
+
+#planday{
+    /* margin-left: 95px;
+    margin-top: 2.5em;
+    font-size: 15px; */
+}
+
+#planprice{
+    /* text-align: right;
+    display: block;
+    margin-top: -3.1em;
+    margin-right: 14px;
+    font-size: 15px; */
+}
+
+#planedit {
+    margin-top: 10px;
+    /* float: right;
+    display: inline-block;
+    outline: none;
+    border: none;
+    bottom: -9px;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px; */
+}
+
+@media screen and (max-width: 900px){
+    .logo{
+        display: none;
+    }
+
+    #sidetitle{
+        display: none;
+    }
+
+    .wrapper .sidebar{
+        width: 50px;
+        height: 100%;
+        padding: 50px 0px;
+        position: fixed;
+        
+        transition: ease all .3s;
+    }
+
+    .wrapper .sidebar ul i{
+        font-size: 20px;
+        display: initial;
+    }
+
+    .wrapper .sidebar ul li a{
+        overflow: hidden;
+    }
+
+    .wrapper .sidebar ul i{
+        margin-right: 500px;
+    }
+
+    .wrapper .main_content{
+        width: 100%;
+        margin-left: 50px;
+    }
+
+    #perplan{
+        width: 100%;
+        height: 70%;
+    }
+}
